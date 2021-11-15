@@ -2,10 +2,11 @@ pipeline {
     agent {
         docker { image 'jadenchangtw/androidbuild:0.1' }
     }
+
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'gradle assembleDebug'
+                sh 'gradlew assembleDebug'
             }
         }
     }
