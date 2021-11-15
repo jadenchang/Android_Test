@@ -19,6 +19,7 @@ pipeline {
                withSonarQubeEnv('SonarQube Server') {
                     script {
                         if ((GIT_BRANCH == 'develop')||(GIT_BRANCH == 'main')||(GIT_BRANCH == 'master')) {
+                           sh 'echo test'
                            sh 'gradle sonar'
                         }
                     }
