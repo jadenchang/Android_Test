@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'gradle assembleDebug'
+                sh 'gradle -PdisablePreDex assembleDebug'
             }
         }
     }
