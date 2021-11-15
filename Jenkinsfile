@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'jadenchangtw/androidbuild:0.1' }
+        docker { image 'jadenchangtw/androidbuild:0.1' args '-u root' }
     }
 
     stages {
