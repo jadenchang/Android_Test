@@ -7,7 +7,6 @@ pipeline {
     }
 
     stages {
-
         stage('SonarQube Analysis') {
             when {
                 expression {
@@ -20,10 +19,11 @@ pipeline {
                withSonarQubeEnv('SonarQube Server') {
                     script {
                         if ((GIT_BRANCH == 'develop')||(GIT_BRANCH == 'main')||(GIT_BRANCH == 'master')) {
-                           sh 'mvn sonar:sonar'
+                           sh 'gradle sonar'
                         }
                     }
                }
+            }
         }
 
         stage('Build') {
@@ -32,6 +32,4 @@ pipeline {
             }
         }
     }
-
-
 }
